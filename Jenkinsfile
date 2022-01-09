@@ -1,26 +1,14 @@
 pipeline {
     agent any
-	
-	  tools
-    {
-       maven "Maven"
-    }
+	{
  stages {
       stage('checkout') {
            steps {
              
                 git branch: 'master', url: 'https://https://github.com/shelke1234/CI-CD-using-Docker.git'
              
-          }
-        }
-	 stage('Execute Maven') {
-           steps {
-             
-                sh 'mvn package'             
-          }
-        }
+	   }
         
-
   stage('Docker Build and Tag') {
            steps {
               
