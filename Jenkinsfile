@@ -11,9 +11,9 @@ pipeline {
   stage('Docker Build and Tag') {
            steps {
               
-                sh 'docker build -t samplewebapp:latest .' 
-                sh 'docker tag samplewebapp nikhilnidhi/samplewebapp:latest'
-                //sh 'docker tag samplewebapp nikhilnidhi/samplewebapp:$BUILD_NUMBER'
+                sh 'docker build -t myhub:latest .' 
+                sh 'docker tag myhub dhananjayshelke/myhub:latest'
+                //sh 'docker tag myhub dhananjayshelke/myhub:$BUILD_NUMBER'
                
           }
         }
@@ -22,8 +22,8 @@ pipeline {
           
             steps {
         withDockerRegistry([ credentialsId: "dhananjayshelke", url: "" ]) {
-          sh  'docker push dhananjayshelke/samplewebapp:latest'
-        //  sh  'docker push dhananjayshelke/samplewebapp:$BUILD_NUMBER' 
+          sh  'docker push dhananjayshelke/myhub:latest'
+        //  sh  'docker push dhananjayshelke/myhub:$BUILD_NUMBER' 
         }
                   
           }
@@ -33,14 +33,14 @@ pipeline {
              
             steps 
 			{
-                sh "docker run -d -p 8003:8080 dhananjayshelke/samplewebapp"
+                sh "docker run -d -p 8003:8080 dhananjayshelke/myhub"
  
             }
         }
  stage('Run Docker container on remote hosts') {
              
             steps {
-                sh "docker -H ssh://jenkins@13.127.10.243 run -d -p 8003:8080 nikhilnidhi/samplewebapp"
+                sh "docker -H ssh://jenkins@13.127.10.243 run -d -p 8003:8080 dhananjayshelke/myhub"
  
             }
         }
