@@ -1,4 +1,9 @@
 # Docker
+- task: ContainerBuild@0
+  inputs:
+    dockerRegistryServiceConnection: 'MyDockerHub'
+    repository: 'dhananjayshelke / myhub'
+    Dockerfile: 'Dockerfile'
 # Build a Docker image
 # https://docs.microsoft.com/azure/devops/pipelines/languages/docker
 
