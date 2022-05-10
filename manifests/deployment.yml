@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: shelkecicdusingdocker 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: shelkecicdusingdocker
+  template:
+    metadata:
+      labels:
+        app: shelkecicdusingdocker 
+    spec:
+      containers:
+        - name: shelkecicdusingdocker 
+          image: dockeraz.azurecr.io/shelkecicdusingdocker
+          ports:
+          - containerPort: 8080
