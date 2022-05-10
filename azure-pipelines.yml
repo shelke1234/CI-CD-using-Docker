@@ -18,7 +18,12 @@ stages:
   - job: Build
     displayName: Build
     pool:
-      vmImage: ubuntu-latest
+      vmImage: - task: ContainerBuild@0
+  inputs:
+    dockerRegistryServiceConnection: 'MyDOC'
+    repository: 'dhananjayshelke / myhub'
+    Dockerfile: 'Dockerfile'
+    buildContext: '.NewBuild'
     steps:
     - task: Docker@2
       displayName: Build an image
