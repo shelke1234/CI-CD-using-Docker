@@ -1,5 +1,5 @@
 FROM tomcat:latest
-COPY ..**/
+COPY . .
 LABEL maintainer="Dhananjay"
 
 EXPOSE 8080
