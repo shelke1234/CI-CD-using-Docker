@@ -1,7 +1,6 @@
-FROM tomcat:latest
+FROM node:latest
+WORKDIR /usr/src/app
 COPY . .
-LABEL maintainer="Dhananjay"
-
-EXPOSE 8080
-
-CMD ["catalina.sh", "run"]
+RUN npm install
+EXPOSE 3000
+CMD [ "npm","start" ]
