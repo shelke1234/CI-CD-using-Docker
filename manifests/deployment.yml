@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: shelkecicdusingdocker 
-          image: dhananjayshelke/myhub:latest 
+          image: dhananjayshelke/shelkepatil:latest 
           ports:
           - containerPort: 8080  
           
