@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: cicdusingdocker 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cicdusingdocker
+  template:
+    metadata:
+      labels:
+        app: cicdusingdocker 
+    spec:
+      containers:
+        - name: cicdusingdocker 
+          image: dockeraz.azurecr.io/cicdusingdocker
+          ports:
+          - containerPort: 3000
